@@ -4,7 +4,10 @@
   "description": "An easy to use package that exposes the ProBasketball API",
   "main": "./src/probasketball.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npm run test-unit-node; npm run test-integration-node",
+    "test-unit-node": "./node_modules/.bin/mocha test/unit/common test/unit/node",
+    "test-integration-node": "./node_modules/.bin/mocha test/integration/common test/integration/node",
+    "coverage": "./node_modules/.bin/istanbul bin/run-node-unit-tests.js"
   },
   "repository": {
     "type": "git",
@@ -20,5 +23,9 @@
     "lodash": "^4.16.6",
     "request": "^2.78.0",
     "bluebird": "^3.4.7"
+  },
+  "devDependencies": {
+    "mocha": "^3.2.0",
+    "istanbul": "^0.4.5"
   }
 }
