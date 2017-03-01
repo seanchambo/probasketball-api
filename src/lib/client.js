@@ -44,30 +44,30 @@ ProBasketballClient.prototype = {
     this.baseUrl = this.baseUrls[this.version];
 
     // Collections
-    this.teams = new TeamsCollection(this);
-    this.games = new GamesCollection(this);
-    this.players = new PlayersCollection(this);
-    this.shot_charts = new ShotChartsCollection(this);
-    this.players_usage = new PlayersUsageCollection(this);
+    this.teams = new TeamsCollection(this, 'team');
+    this.games = new GamesCollection(this, 'game');
+    this.players = new PlayersCollection(this, 'player');
+    this.shot_charts = new ShotChartsCollection(this, 'shots');
+    this.players_usage = new PlayersUsageCollection(this, 'usage/player');
     this.advanced_stats = {
-      teams: new TeamAdvancedStatsCollection(this),
-      players: new PlayerAdvancedStatsCollection(this)
+      teams: new TeamAdvancedStatsCollection(this, 'advanced/team'),
+      players: new PlayerAdvancedStatsCollection(this, 'advanced/player')
     };
     this.box_scores = {
-      teams: new TeamBoxScoresCollection(this),
-      players: new PlayerBoxScoresCollection(this)
+      teams: new TeamBoxScoresCollection(this, 'boxscore/team'),
+      players: new PlayerBoxScoresCollection(this, 'boxscore/player')
     };
     this.four_factors = {
-      teams: new TeamFourFactorsCollection(this),
-      players: new PlayerFourFactorsCollection(this)
+      teams: new TeamFourFactorsCollection(this, 'four_factor/team'),
+      players: new PlayerFourFactorsCollection(this, 'four_factor/player')
     };
     this.misc_stats = {
-      teams: new TeamMiscStatsCollection(this),
-      players: new PlayerMiscStatsCollection(this)
+      teams: new TeamMiscStatsCollection(this, 'misc/team'),
+      players: new PlayerMiscStatsCollection(this, 'misc/player')
     }
     this.sports_vu = {
-      teams: new TeamSportsVuCollection(this),
-      players: new PlayerSportsVuCollection(this)
+      teams: new TeamSportsVuCollection(this, 'sportsvu/team'),
+      players: new PlayerSportsVuCollection(this, 'sportsvu/player')
     }
   },
 
