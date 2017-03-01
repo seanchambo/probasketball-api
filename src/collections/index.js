@@ -11,6 +11,11 @@ var {
 } = require('./advanced_stats');
 
 var {
+  TeamBoxScoresCollection,
+  PlayerBoxScoresCollection
+} = require('./box_scores');
+
+var {
 
 }
 
@@ -20,3 +25,5 @@ exports.PlayersCollection = PlayersCollection;
 exports.ShotChartsCollection = ShotChartsCollection;
 exports.TeamAdvancedStatsCollection = TeamAdvancedStatsCollection;
 exports.PlayerAdvancedStatsCollection = PlayerAdvancedStatsCollection;
+exports.TeamBoxScoresCollection = TeamBoxScoresCollection;
+exports.PlayerBoxScoresCollection = PlayerBoxScoresCollection;

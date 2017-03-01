@@ -12,7 +12,9 @@ var {
   PlayersCollection,
   ShotChartsCollection,
   TeamAdvancedStatsCollection,
-  PlayerAdvancedStatsCollection
+  PlayerAdvancedStatsCollection,
+  TeamBoxScoresCollection,
+  PlayerBoxScoresCollection
 } = require('../collections');
 
 var ProBasketballClient = function() {
@@ -41,6 +43,8 @@ ProBasketballClient.prototype = {
     this.shot_charts = new ShotChartsCollection(this);
     this.team_advanced_stats = new TeamAdvancedStatsCollection(this);
     this.player_advanced_stats = new PlayerAdvancedStatsCollection(this);
+    this.team_box_scores = new TeamBoxScoresCollection(this);
+    this.player_box_scores = new PlayerBoxScoresCollection(this);
   },
 
   get: function(kwargs, cb) {
