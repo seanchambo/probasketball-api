@@ -29,7 +29,7 @@ var {
 var {
   TeamSportsVuCollection,
   PlayerSportsVuCollection
-} = require('./misc_stats');
+} = require('./sports_vu');
 
 exports.TeamsCollection = TeamsCollection;
 exports.GamesCollection = GamesCollection;
