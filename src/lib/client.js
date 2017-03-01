@@ -16,7 +16,9 @@ var {
   TeamBoxScoresCollection,
   PlayerBoxScoresCollection,
   TeamFourFactorsCollection,
-  PlayerFourFactorsCollection
+  PlayerFourFactorsCollection,
+  TeamMiscStatsCollection,
+  PlayerMiscStatsCollection
 } = require('../collections');
 
 var ProBasketballClient = function() {
@@ -49,6 +51,8 @@ ProBasketballClient.prototype = {
     this.player_box_scores = new PlayerBoxScoresCollection(this);
     this.team_four_factors = new TeamFourFactorsCollection(this);
     this.player_four_factors = new PlayerFourFactorsCollection(this);
+    this.team_misc_stats = new TeamMiscStatsCollection(this);
+    this.player_misc_stats = new PlayerMiscStatsCollection(this);
   },
 
   get: function(kwargs, cb) {

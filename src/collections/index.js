@@ -20,6 +20,11 @@ var {
   PlayerFourFactorsCollection
 } = require('./form_factors');
 
+var {
+  TeamMiscStatsCollection,
+  PlayerMiscStatsCollection
+} = require('./misc_stats');
+
 exports.TeamsCollection = TeamsCollection;
 exports.GamesCollection = GamesCollection;
 exports.PlayersCollection = PlayersCollection;
@@ -30,3 +35,5 @@ exports.TeamBoxScoresCollection = TeamBoxScoresCollection;
 exports.PlayerBoxScoresCollection = PlayerBoxScoresCollection;
 exports.TeamFourFactorsCollection = TeamFourFactorsCollection;
 exports.PlayerFourFactorsCollection = PlayerFourFactorsCollection;
+exports.TeamMiscStatsCollection = TeamMiscStatsCollection;
+exports.PlayerMiscStatsCollection = PlayerMiscStatsCollection;
