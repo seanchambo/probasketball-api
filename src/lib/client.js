@@ -7,7 +7,10 @@ var {
 } = require('./promise_helper');
 
 var {
-  TeamsCollection
+  TeamsCollection,
+  GamesCollection,
+  PlayersCollection,
+  ShotChartsCollection
 } = require('../collections');
 
 var ProBasketballClient = function() {
@@ -22,11 +25,18 @@ ProBasketballClient.prototype = {
   },
 
   initialize: function(apiKey, options) {
+
+    // Settings
     this.apiKey = apiKey;
     this.options = options || {};
     this.version = this.options.version || 'v2';
     this.baseUrl = this.baseUrls[this.version];
+
+    // Collections
     this.teams = new TeamsCollection(this);
+    this.games = new GamesCollection(this);
+    this.players = new PlayersCollection(this);
+    this.shot_charts = new ShotChartsCollection(this);
   },
 
   get: function(kwargs, cb) {
