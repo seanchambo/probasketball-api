@@ -48,17 +48,27 @@ ProBasketballClient.prototype = {
     this.games = new GamesCollection(this);
     this.players = new PlayersCollection(this);
     this.shot_charts = new ShotChartsCollection(this);
-    this.team_advanced_stats = new TeamAdvancedStatsCollection(this);
-    this.player_advanced_stats = new PlayerAdvancedStatsCollection(this);
-    this.team_box_scores = new TeamBoxScoresCollection(this);
-    this.player_box_scores = new PlayerBoxScoresCollection(this);
-    this.team_four_factors = new TeamFourFactorsCollection(this);
-    this.player_four_factors = new PlayerFourFactorsCollection(this);
-    this.team_misc_stats = new TeamMiscStatsCollection(this);
-    this.player_misc_stats = new PlayerMiscStatsCollection(this);
-    this.team_sports_vu = new TeamSportsVuCollection(this);
-    this.player_sports_vu = new PlayerSportsVuCollection(this);
     this.players_usage = new PlayersUsageCollection(this);
+    this.advanced_stats = {
+      teams: new TeamAdvancedStatsCollection(this),
+      players: new PlayerAdvancedStatsCollection(this)
+    };
+    this.box_scores = {
+      teams: new TeamBoxScoresCollection(this),
+      players: new PlayerBoxScoresCollection(this)
+    };
+    this.four_factors = {
+      teams: new TeamFourFactorsCollection(this),
+      players: new PlayerFourFactorsCollection(this)
+    };
+    this.misc_stats = {
+      teams: new TeamMiscStatsCollection(this),
+      players: new PlayerMiscStatsCollection(this)
+    }
+    this.sports_vu = {
+      teams: new TeamSportsVuCollection(this),
+      players: new PlayerSportsVuCollection(this)
+    }
   },
 
   get: function(kwargs, cb) {
