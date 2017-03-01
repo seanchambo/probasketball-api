@@ -1,13 +1,14 @@
 var Promise = require('bluebird');
 var request = require('request');
+
 var {
   wrapFetchPromise,
   wrapFindPromise
 } = require('./promise_helper');
 
-// var {
-//   TeamsCollection
-// } = require('../collections');
+var {
+  TeamsCollection
+} = require('../collections');
 
 var ProBasketballClient = function() {
 
@@ -25,7 +26,7 @@ ProBasketballClient.prototype = {
     this.options = options || {};
     this.version = this.options.version || 'v2';
     this.baseUrl = this.baseUrls[this.version];
-    // this.teams = new TeamsCollection(this);
+    this.teams = new TeamsCollection(this);
   },
 
   get: function(kwargs, cb) {
