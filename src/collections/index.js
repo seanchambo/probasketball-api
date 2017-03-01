@@ -2,7 +2,8 @@ var {
   TeamsCollection,
   GamesCollection,
   PlayersCollection,
-  ShotChartsCollection
+  ShotChartsCollection,
+  PlayersUsageCollection
 } = require('./basic');
 
 var {
@@ -44,3 +45,4 @@ exports.TeamMiscStatsCollection = TeamMiscStatsCollection;
 exports.PlayerMiscStatsCollection = PlayerMiscStatsCollection;
 exports.TeamSportsVuCollection = TeamSportsVuCollection;
 exports.PlayerSportsVuCollection = PlayerSportsVuCollection;
+exports.PlayersUsageCollection = PlayersUsageCollection;
