@@ -4,7 +4,7 @@ var request = require('request');
 var {
   wrapFetchPromise,
   wrapFindPromise
-} = require('./promise_helper');
+} = require('./promise_helpers');
 
 var {
   TeamsCollection,
