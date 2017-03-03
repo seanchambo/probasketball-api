@@ -62,6 +62,7 @@ function wrapCallback(cb) {
   function callback() {
     // first hit the global callback, subsequently forward
     var args = Array.prototype.slice.call(arguments);
+    /* istanbul ignore else */
     if (cb !== undefined) {
       cb.apply(client, args);
     }
