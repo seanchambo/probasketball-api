@@ -14,7 +14,7 @@ function wrapFetchPromise(cb, fulfill, reject) {
         error: body,
         response: response,
       });
-    } else if (body == 'Invalid API key.') {
+    } else if (typeof body === 'string') {
       reject({
         error: body,
         response: response
@@ -43,7 +43,7 @@ function wrapFindPromise(cb, fulfill, reject) {
         error: body,
         response: response,
       });
-    } else if (body == 'Invalid API key.') {
+    } else if (typeof body === 'string') {
       reject({
         error: body,
         response: response

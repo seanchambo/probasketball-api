@@ -44,30 +44,30 @@ ProBasketballClient.prototype = {
     this.baseUrl = this.baseUrls[this.version];
 
     // Collections
-    this.teams = new TeamsCollection(this, 'team');
-    this.games = new GamesCollection(this, 'game');
-    this.players = new PlayersCollection(this, 'player');
-    this.shot_charts = new ShotChartsCollection(this, 'shots');
-    this.players_usage = new PlayersUsageCollection(this, 'usage/player');
+    this.teams = new TeamsCollection(this, 'team', false);
+    this.games = new GamesCollection(this, 'game', false);
+    this.players = new PlayersCollection(this, 'player', false);
+    this.shot_charts = new ShotChartsCollection(this, 'shots', true);
+    this.players_usage = new PlayersUsageCollection(this, 'usage/player', true);
     this.advanced_stats = {
-      teams: new TeamAdvancedStatsCollection(this, 'advanced/team'),
-      players: new PlayerAdvancedStatsCollection(this, 'advanced/player')
+      teams: new TeamAdvancedStatsCollection(this, 'advanced/team', true),
+      players: new PlayerAdvancedStatsCollection(this, 'advanced/player', true)
     };
     this.box_scores = {
-      teams: new TeamBoxScoresCollection(this, 'boxscore/team'),
-      players: new PlayerBoxScoresCollection(this, 'boxscore/player')
+      teams: new TeamBoxScoresCollection(this, 'boxscore/team', true),
+      players: new PlayerBoxScoresCollection(this, 'boxscore/player', true)
     };
     this.four_factors = {
-      teams: new TeamFourFactorsCollection(this, 'four_factor/team'),
-      players: new PlayerFourFactorsCollection(this, 'four_factor/player')
+      teams: new TeamFourFactorsCollection(this, 'four_factor/team', true),
+      players: new PlayerFourFactorsCollection(this, 'four_factor/player', true)
     };
     this.misc_stats = {
-      teams: new TeamMiscStatsCollection(this, 'misc/team'),
-      players: new PlayerMiscStatsCollection(this, 'misc/player')
+      teams: new TeamMiscStatsCollection(this, 'misc/team', true),
+      players: new PlayerMiscStatsCollection(this, 'misc/player', true)
     }
     this.sports_vu = {
-      teams: new TeamSportsVuCollection(this, 'sportsvu/team'),
-      players: new PlayerSportsVuCollection(this, 'sportsvu/player')
+      teams: new TeamSportsVuCollection(this, 'sportsvu/team', true),
+      players: new PlayerSportsVuCollection(this, 'sportsvu/player', true)
     }
   },
 
@@ -94,6 +94,8 @@ ProBasketballClient.prototype = {
   },
 
   post: function(kwargs, cb) {
+    var me = this;
+
     return new Promise(function(fulfill, reject) {
       kwargs = this.enrichKwargs(kwargs);
       kwargs.method = 'POST';
@@ -105,6 +107,7 @@ ProBasketballClient.prototype = {
   },
 
   postOne: function(kwargs, cb) {
+    var me = this;
     return new Promise(function(fulfill, reject) {
       kwargs = this.enrichKwargs(kwargs);
       kwargs.method = 'POST';

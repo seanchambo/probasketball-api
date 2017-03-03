@@ -3,13 +3,16 @@ function InheritedCollection() {
 }
 
 InheritedCollection.prototype = {
-  initialize: function(client, url) {
+  initialize: function(client, url, required_fields) {
     this.client = client;
     this.url = url;
-  },
+    this.required_fields = required_fields;
 
-  fetchAll: function(cb) {
-    return this.fetch({}, cb);
+    if (!this.required_fields) {
+      this.fetchAll = function(cb) {
+        return this.fetch({}, cb);
+      }
+    }
   },
 
   fetch: function(options, cb) {
@@ -21,17 +24,13 @@ InheritedCollection.prototype = {
     }, this._callback.bind(this, cb));
   },
 
-  findBy: function(options, cb) {
+  find: function(options, cb) {
     var me = this;
 
     return this.client.postOne({
       url: me.url,
       body: options
     }, this._callback.bind(this, cb));
-  },
-
-  find: function(id, cb) {
-    return this.findBy({ id: id }, cb);
   },
 
   _callback: function(cb, err, response, body) {
