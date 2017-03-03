@@ -74,46 +74,24 @@ describe('[UNIT] Inherited Collection', function() {
     });
   });
 
-  describe('#findBy', function() {
-    it('(1)', function() {
-      inherited_collection.findBy({ attr: 'attr' });
-
-      td.verify(postOne({
-        url: 'endpoint',
-        body: { attr: 'attr' }
-      }, _callback.capture()));
-    });
-
-    it('(2)', function() {
-      var cb = function() {};
-      inherited_collection.findBy({ attr: 'attr' }, cb);
-
-      td.verify(postOne({
-        url: 'endpoint',
-        body: { attr: 'attr' }
-      }, _callback.capture()));
-    });
-  });
-
   describe('#find', function() {
-    var findBy;
-
-    beforeEach(function() {
-      findBy = td.function();
-      td.replace(inherited_collection, 'findBy', findBy);
-    });
-
     it('(1)', function() {
-      inherited_collection.find(1);
+      inherited_collection.find({ attr: 'attr' });
 
-      td.verify(findBy({ id: 1 }, undefined));
+      td.verify(postOne({
+        url: 'endpoint',
+        body: { attr: 'attr' }
+      }, _callback.capture()));
     });
 
     it('(2)', function() {
       var cb = function() {};
-      inherited_collection.find(1, cb);
+      inherited_collection.find({ attr: 'attr' }, cb);
 
-      td.verify(findBy({ id: 1 }, cb));
+      td.verify(postOne({
+        url: 'endpoint',
+        body: { attr: 'attr' }
+      }, _callback.capture()));
     });
   });
 
